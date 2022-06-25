@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 24-06-2022 a las 00:25:19
+-- Tiempo de generación: 25-06-2022 a las 08:05:19
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 7.4.29
 
@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `api_maule` (
-  `rut` bigint(20) NOT NULL,
+  `rut` int(11) NOT NULL,
   `nombre` varchar(50) NOT NULL,
   `apellido_mat` varchar(200) NOT NULL,
   `apellido_pat` varchar(200) NOT NULL,
@@ -42,7 +42,7 @@ CREATE TABLE `api_maule` (
 --
 
 INSERT INTO `api_maule` (`rut`, `nombre`, `apellido_mat`, `apellido_pat`, `edad`, `vacuna`, `fecha`) VALUES
-(206486830, 'sebastian', 'peralta', 'bustamante', 21, 'Cansino', '2022-06-30');
+(206486830, 'sebastian', 'muñoz', 'osorio', 21, 'Cansino', '2022-06-30');
 
 -- --------------------------------------------------------
 
@@ -182,6 +182,14 @@ CREATE TABLE `django_admin_log` (
   `user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Volcado de datos para la tabla `django_admin_log`
+--
+
+INSERT INTO `django_admin_log` (`id`, `action_time`, `object_id`, `object_repr`, `action_flag`, `change_message`, `content_type_id`, `user_id`) VALUES
+(1, '2022-06-25 03:48:03.331458', '206486830', 'Maule object (206486830)', 2, '[]', 7, 1),
+(2, '2022-06-25 03:49:06.503850', '206486831', 'Maule object (206486831)', 1, '[{\"added\": {}}]', 7, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -243,7 +251,8 @@ INSERT INTO `django_migrations` (`id`, `app`, `name`, `applied`) VALUES
 (16, 'auth', '0011_update_proxy_permissions', '2022-06-23 21:41:56.915713'),
 (17, 'auth', '0012_alter_user_first_name_max_length', '2022-06-23 21:41:56.941737'),
 (18, 'sessions', '0001_initial', '2022-06-23 21:41:56.989781'),
-(19, 'api', '0001_initial', '2022-06-23 21:48:03.088437');
+(19, 'api', '0001_initial', '2022-06-23 21:48:03.088437'),
+(20, 'api', '0002_alter_maule_apellido_mat_alter_maule_apellido_pat_and_more', '2022-06-25 03:35:55.636953');
 
 -- --------------------------------------------------------
 
@@ -355,7 +364,7 @@ ALTER TABLE `django_session`
 -- AUTO_INCREMENT de la tabla `api_maule`
 --
 ALTER TABLE `api_maule`
-  MODIFY `rut` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=206486831;
+  MODIFY `rut` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=206486832;
 
 --
 -- AUTO_INCREMENT de la tabla `auth_group`
@@ -397,7 +406,7 @@ ALTER TABLE `auth_user_user_permissions`
 -- AUTO_INCREMENT de la tabla `django_admin_log`
 --
 ALTER TABLE `django_admin_log`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `django_content_type`
@@ -409,7 +418,7 @@ ALTER TABLE `django_content_type`
 -- AUTO_INCREMENT de la tabla `django_migrations`
 --
 ALTER TABLE `django_migrations`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- Restricciones para tablas volcadas
