@@ -19,3 +19,4 @@ class MauleViews(View):
 
     def delete(self, request):
         return render(request, 'index.html')
+

@@ -76,7 +76,7 @@
 									<td>{{ Maules.vacuna}}</td> <!-- Vacuna -->
 									<td>{{ Maules.fecha}}</td>  <!-- email -->
 									<td>
-										<a href="#"><i class="fas fa-edit"></i></a> | <a href=""><i class="fas fa-user-times"></i></a>
+										<a href="#"><i class="fas fa-edit"></i></a> | <a href="eliminar/{{ Maules.rut }}"><i class="fas fa-user-times"></i></a>
 									</td>
 								</tr>
 								{% endfor %}
@@ -93,7 +93,7 @@
 						<h4>Agregar paciente</h4>
 					</div>
 					<div class="card-body">
-						<form class="form" role="form" autocomplete="false" method="post">
+						<form class="form" role="form" autocomplete="false" method="post"> {% csrf_token %}
 							<div class="form-group row">
 								<label class="col-lg-3 col-form-label form-control-label">Rut</label>
 								<div class="col-lg-9">
