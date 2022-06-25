@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `api_maule` (
-  `rut` int(11) NOT NULL,
+  `rut` int(15) NOT NULL,
   `nombre` varchar(50) NOT NULL,
   `apellido_mat` varchar(200) NOT NULL,
   `apellido_pat` varchar(200) NOT NULL,
