@@ -16,11 +16,13 @@ Including another URLconf
 from xml.etree.ElementInclude import include
 from django.contrib import admin
 from django.urls import path,include
-from web.vista import index, eliminar
+from web.vista import index, eliminar, registrar
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index, name='home'),
+    path('index', index, name='index'),
     path('api/', include('api.urls')),
     path('eliminar/<rut>', eliminar, name='eliminar'),
+   path('registrar', registrar, name='registrar'),
 ]
