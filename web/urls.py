@@ -8,6 +8,6 @@ urlpatterns = [ #crear urls
     path('', index, name='home'), #para que se pueda acceder a la pagina de index
     path('index', index, name='index'), #para que se pueda acceder a la pagina de index
     path('api/', include('api.urls')), #para que se pueda acceder a la pagina de api
-    path('eliminar/<rut>', eliminar, name='eliminar'), #para que se pueda acceder a la pagina de eliminar
+    path('eliminar/<idusuario>', eliminar, name='eliminar'), #para que se pueda acceder a la pagina de eliminar
    path('registrar', registrar, name='registrar'), #para que se pueda acceder a la pagina de registrar
 ]

@@ -1,29 +1,31 @@
 import re  #importar libreria re
-from tkinter import EW #importar libreria tkinter
+from tkinter import EW
+from urllib.request import Request #importar libreria tkinter
 from django.shortcuts import redirect, render #importar funciones redirect y render
-from api.models import Maule #importar la tabla maule
-from api.forms import MauleForm #importar formulario
+from api.models import Pruebas #importar la tabla PRUEBAS
+from api.forms import PruebasForm #importar formulario
 
 
 # enviar datos a la tabla
 def index(request): #crear funcion index
-    Maules = Maule.objects.all() #crear variable maules y llamar a la tabla maule
-    return render(request, 'index.html', {'Maules': Maules}) #enviar datos a la pagina index.html en variable maules
+    Sistema = Pruebas.objects.all() #crear variable PRUEBAS y llamar a la tabla PRUEBAS
+    return render(request, 'index.html', {'Sistema': Sistema}) #enviar datos a la pagina index.html en variable PRUEBAS
 
 # eliminar datos de la tabla
-def eliminar(request, rut): #crear funcion eliminar
-    remover = Maule.objects.get(rut=rut) #crear variable remover y llamar a la tabla maule
+def eliminar(request, idusuario): #crear funcion eliminar
+    remover = Pruebas.objects.get(idusuario=idusuario) #crear variable remover y llamar a la tabla PRUEBAS
     remover.delete() #eliminar datos de la tabla
     return redirect('index') #redireccionar a la pagina index.html
+#---------------------------------------------------------------------------------------------------------------------
 
-# eliminar datos de la tabla
-def registrar(request): #crear funcion registrar
-    rut = request.POST.get('rut') #crear variable rut y llamar a la variable rut de la pagina index.html
-    nombre = request.POST.get('nombre') #crear variable nombre y llamar a la variable nombre de la pagina index.html
-    apellido_mat = request.POST.get('apellido_mat') #crear variable apellido_mat y llamar a la variable apellido_mat de la pagina index.html
-    apellido_pat = request.POST.get('apellido_pat') #crear variable apellido_pat y llamar a la variable apellido_pat de la pagina index.html
-    edad = request.POST.get('edad') #crear variable edad y llamar a la variable edad de la pagina index.html
-    vacuna = request.POST.get('vacuna') #crear variable vacuna y llamar a la variable vacuna de la pagina index.html
-    fecha = request.POST.get('fecha') #crear variable fecha y llamar a la variable fecha de la pagina index.html
-    registro=Maule.objects.create(rut=rut, nombre=nombre, apellido_mat=apellido_mat, apellido_pat=apellido_pat, edad=edad, vacuna=vacuna, fecha=fecha) #crear variable registro y llamar a la tabla maule
+# escribir datos en la tabla
+
+def registrar(request):
+    # idusuario = request.POST.get('idusuario') #crear variable idusuario y llamar a la variable idusuario de la pagina registrar.html
+    correo = request.POST.get('correo') #crear variable correo y llamar a la variable correo de la pagina registrar.html
+    nombre = request.POST.get('nombre') #crear variable nombre y llamar a la variable nombre de la pagina registrar.html
+    apellido = request.POST.get('apellido') #crear variable apellido y llamar a la variable apellido de la pagina registrar.html
+    rut = request.POST.get('rut') #crear variable rut y llamar a la variable rut de la pagina registrar.html
+    pwd = request.POST.get('pwd') #crear variable pwd y llamar a la variable pwd de la pagina registrar.html
+    Pruebas.objects.create(correo=correo, nombre=nombre, apellido=apellido, rut=rut, pwd=pwd) #crear datos en la tabla
     return redirect('index') #redireccionar a la pagina index.html

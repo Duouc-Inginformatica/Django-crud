@@ -82,7 +82,7 @@ WSGI_APPLICATION = 'web.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql', #motor de la base de datos # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'anto', #hombre de la base de datos
+        'NAME': 'pruebadjango', #hombre de la base de datos
         'USER': 'root', #usuario de la base de datos
         'PASSWORD': '', #contraseña de la base de datos
         'HOST': 'localhost', #host de la base de datos
