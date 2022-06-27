@@ -1,28 +1,13 @@
-"""web URL Configuration
+from xml.etree.ElementInclude import include as include_xml #para incluir archivos xml
+from django.contrib import admin #para que se pueda usar el admin
+from django.urls import path,include #para incluir las urls de otra app
+from web.vista import index, eliminar, registrar #editar, buscar, eliminar_todo, editar_todo, buscar_todo
 
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/4.0/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
-from xml.etree.ElementInclude import include
-from django.contrib import admin
-from django.urls import path,include
-from web.vista import index, eliminar, registrar
-
-urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', index, name='home'),
-    path('index', index, name='index'),
-    path('api/', include('api.urls')),
-    path('eliminar/<rut>', eliminar, name='eliminar'),
-   path('registrar', registrar, name='registrar'),
+urlpatterns = [ #crear urls
+    path('admin/', admin.site.urls), #para que se pueda acceder a la pagina de admin
+    path('', index, name='home'), #para que se pueda acceder a la pagina de index
+    path('index', index, name='index'), #para que se pueda acceder a la pagina de index
+    path('api/', include('api.urls')), #para que se pueda acceder a la pagina de api
+    path('eliminar/<rut>', eliminar, name='eliminar'), #para que se pueda acceder a la pagina de eliminar
+   path('registrar', registrar, name='registrar'), #para que se pueda acceder a la pagina de registrar
 ]

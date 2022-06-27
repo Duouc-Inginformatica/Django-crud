@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'api',
+     'api', #trae la api de la carpeta api
 ]
 
 MIDDLEWARE = [
@@ -78,14 +78,15 @@ WSGI_APPLICATION = 'web.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
+# configuracion de la base de datos
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql', 
-        'NAME': 'anto',
-        'USER': 'root',
-        'PASSWORD': '',
-        'HOST': 'localhost',
-        'PORT': '3306',
+        'ENGINE': 'django.db.backends.mysql', #motor de la base de datos # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+        'NAME': 'anto', #hombre de la base de datos
+        'USER': 'root', #usuario de la base de datos
+        'PASSWORD': '', #contraseña de la base de datos
+        'HOST': 'localhost', #host de la base de datos
+        'PORT': '3306', #puerto de la base de datos
         'OPTIONS': {
             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'" #por los errores a warning
         }

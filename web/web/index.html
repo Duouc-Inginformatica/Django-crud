@@ -24,7 +24,7 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
 
 	<!-- Nuestro css-->
-	<link rel='stylesheet' type='text/css' media='screen' href='{% static "css/formulario.css" %}'>
+	<link rel='stylesheet' type='text/css' media='screen' href='{% static "css/formulario.css" %}'> <!-- static django plantilla -->
 	<!-- DATA TABLE -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/js/jquery.dataTables.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/datatables.net-bs5/1.12.1/dataTables.bootstrap5.min.js"></script>
@@ -66,6 +66,7 @@
 								</tr>
 								</thead>
 								<tbody>
+									<!-- variable de las vistas django -->
 								{% for Maules in Maules %}
 								<tr>
 									<th scope="row">{{ Maules.rut}}</th>  <!-- Rut -->
@@ -79,6 +80,7 @@
 										<a href="editar/{{ Maules.rut }}"><i class="fas fa-edit"></i></a> | <a href="eliminar/{{ Maules.rut }}"><i class="fas fa-user-times"></i></a>
 									</td>
 								</tr>
+								<!-- termina el ciclo -->
 								{% endfor %}
 								</tbody>
 							</table>
@@ -92,12 +94,12 @@
 					<div class="card-header">
 						<h4>Agregar paciente</h4>
 					</div>
-					<div class="card-body">
-						<form class="form" role="form" autocomplete="false" method="post" action="registrar"> {% csrf_token %}
+					<div class="card-body">                                                                   
+						<form class="form" role="form" autocomplete="false" method="post" action="registrar"> {% csrf_token %} <!-- encryptar csrf -->
 							<div class="form-group row">
 								<label class="col-lg-3 col-form-label form-control-label">Rut</label>
 								<div class="col-lg-9">
-									<input name="rut" class="form-control" type="number" max="15" >
+									<input name="rut" class="form-control" type="number">
 								</div>
 							</div>
 							<div class="form-group row">
