@@ -29,7 +29,7 @@ ALLOWED_HOSTS = []
 
 
 STATICFILES_DIRS = [
-    BASE_DIR / "static", 'C:/Users/sebas/Documents/web/web/web/static',
+    BASE_DIR / "static", 'C:/Users/sebas/Desktop/home/Django-crud/web/web/static',
 ]
 
 
@@ -60,7 +60,7 @@ ROOT_URLCONF = 'web.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ["C:/Users/sebas/Documents/web/web/web"],
+        'DIRS': ["C:/Users/sebas/Desktop/home/Django-crud/web/web/"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
