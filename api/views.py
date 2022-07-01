@@ -9,14 +9,18 @@ from .models import Pruebas #importar tabla idusuario
 
 class PruebasViews(View): #crear clase idusuarioViews
     def get(self, request): #crear funcion get
-        return render(request, 'index.html') #enviar datos a la pagina index.html
+        Datos=list(Pruebas.objects.values()) #crear variable Datos
+        if len(Datos)>0:
+            datos={'message': 'Success', 'Datos': Datos} #crear variable datos
+        else:
+            datos={'message': 'No hay datos'}
+        return JsonResponse(datos) #retornar datos
 
-    def post(self, request):    #crear funcion post
-        return render(request, 'index.html') #enviar datos a la pagina index.html
-    
+    def post(self, request): #crear funcion post
+        pass
     def put(self, request): #crear funcion put
-        return render(request, 'index.html') #enviar datos a la pagina index.html
-
+        pass
     def delete(self, request): #crear funcion delete
-        return render(request, 'index.html') #enviar datos a la pagina index.html
+        pass
+
 
