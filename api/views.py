@@ -29,7 +29,7 @@ class PruebasViews(View): #crear clase idusuarioViews
         else:
             Datos=list(Pruebas.objects.values()) #crear variable Datos
             if len(Datos)>0:
-                datos={'message': 'Success', 'peralta': Datos} #crear variable datos
+                datos={'message': 'Success', 'Datos': Datos} #crear variable datos
             else:
                 datos={'message': 'No hay datos'}
             return JsonResponse(datos) #retornar datos
@@ -42,21 +42,20 @@ class PruebasViews(View): #crear clase idusuarioViews
         return JsonResponse (Dates) #retornar Dates
 
         
-    def put(self, request, idusuario):
-        jd = json.loads(request.body)
-        Datos = list(Pruebas.objects.filter(idusuario=idusuario).values())
+    def put(self, request,idusuario): #crear funcion put
+        jd = json.loads(request.body) #crear variable jd
+        Datos = list(Pruebas.objects.filter(idusuario=idusuario).values()) #crear variable Datos
         if len(Datos) > 0:
-            pruebas = Pruebas.objects.get(idusuario=idusuario)
-            pruebas.correo = jd['correo']
-            pruebas.nombre = jd['nombre']
-            pruebas.apellido = jd['apellido']
-            pruebas.rut = jd['rut']
-            pruebas.pwd = jd['pwd']
-            pruebas.save()
-            datos = {'message': "Success"}
+            Datos=Pruebas.objects.get(idusuario=idusuario) #crear variable Datos
+            Datos.correo=jd['correo'] #crear variable Datos
+            Datos.nombre=jd['nombre'] #crear variable Datos
+            Datos.apellido=jd['apellido'] #crear variable Datos
+            Datos.rut=jd['rut'] #crear variable Datos
+            Datos.pwd=jd['pwd'] #crear variable Datos
+            Datos.save() #guardar Datos
         else:
-            datos = {'message': "pruebas not found..."}
-        return JsonResponse(datos)
+            datos={'message': 'No hay datos'} #crear variable datos
+        return JsonResponse(datos) #retornar datos
 
     
     
