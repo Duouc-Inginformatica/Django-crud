@@ -53,10 +53,8 @@ def registrare(request): #crear funcion registrar
     correos = request.POST.get('correos') #crear variable correo y llamar a la variable correo de la pagina index.html
     ticket = request.POST.get('ticket') #crear variable ticket y llamar a la variable ticket de la pagina index.html
     edad = request.POST.get('edad') #crear variable edad y llamar a la variable edad de la pagina index.html
-    movilidad = request.POST.get('movilidad') #crear variable movilidad y llamar a la variable movilidad de la pagina index.html
     fecha = request.POST.get('fecha') #crear variable fecha y llamar a la variable fecha de la pagina index.html
-    precio = request.POST.get('precio') #crear variable precio y llamar a la variable precio de la pagina index.html
-    datala = Lola.objects.create(rut=rut, nombres=nombres, apellidos=apellidos, correos=correos, ticket=ticket, edad=edad, movilidad=movilidad, fecha=fecha, precio=precio) #crear variable registro y llamar a la tabla maule
+    datala = Lola.objects.create(rut=rut, nombres=nombres, apellidos=apellidos, correos=correos, ticket=ticket, edad=edad, fecha=fecha) #crear variable registro y llamar a la tabla maule
     return redirect('form2') #redireccionar a la pagina index.html
 
 
