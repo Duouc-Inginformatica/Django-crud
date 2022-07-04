@@ -1,3 +1,4 @@
+from importlib.resources import contents
 import re  #importar libreria re
 from tkinter import EW #importar libreria tkinter
 from django.shortcuts import redirect, render #importar funciones redirect y render
@@ -27,3 +28,17 @@ def registrar(request): #crear funcion registrar
     fecha = request.POST.get('fecha') #crear variable fecha y llamar a la variable fecha de la pagina index.html
     registro=Maule.objects.create(rut=rut, nombre=nombre, apellido_mat=apellido_mat, apellido_pat=apellido_pat, edad=edad, vacuna=vacuna, fecha=fecha) #crear variable registro y llamar a la tabla maule
     return redirect('index') #redireccionar a la pagina index.html
+
+#django editar datos de la tabla
+def editar(request, rut): #crear funcion editar
+    obj = Maule.objects.get(rut=rut) #crear variable obj y llamar a la tabla maule
+    if request.method == 'GET': #si el metodo es get
+        form = MauleForm(instance=obj) #crear variable form y llamar a la variable obj de la tabla maule
+    else: 
+        form = MauleForm(request.POST, instance=obj)
+        if form.is_valid():
+            form.save()
+            return redirect('index')
+        else:
+            return render(request, 'editar.html', {'form': form})
+        return render(request, 'editar.html', {'form': form}) #enviar datos a la pagina editar.html en variable form

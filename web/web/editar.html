@@ -1,0 +1,46 @@
+{% load static %}
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link rel='stylesheet' type='text/css' media='screen' href='{% static "css/form.css" %}'>
+<script src="static/java/form.js"></script>
+
+<link href="https://fonts.googleapis.com/css?family=Libre+Franklin" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+
+<div style="display:flex;width:100%;">
+    <form method="post"> 
+        {% csrf_token %} <!-- encryptar csrf -->
+        <div style="width:100%;">
+            <p>RUT</p>
+            <input name="rut" autofocus>
+        </div>
+        <div style="width:100%;">
+            <p>Nombre</p>
+            <input name="nombre">
+        </div>
+        <div style="width:100%;">
+            <p>Apellido materno</p>
+            <input name="apellido_mat">
+        </div>
+        <div style="width:47%;">
+            <p>Apellido paterno</p>
+            <input name="apellido_pat">
+        </div>
+        <div style="width:47%;margin-left:6%">
+            <p>Edad</p>
+            <input name="edad">
+        </div>
+        <div style="width:47%;margin-left:6%">
+            <p>vacuna</p>
+            <input name="vacuna">
+        </div>
+        <div style="width:47%;margin-left:6%">
+            <p>fecha</p>
+            <input name="fecha" type="date">
+        </div>
+        <p>
+            <input type="submit" class="btn btn-success"  value="Guardar">
+        </p>
+    </form> 
+</div>

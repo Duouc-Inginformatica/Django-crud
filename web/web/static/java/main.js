@@ -244,4 +244,36 @@ $(document).ready(function() {
          }
 
     } );
-} );    
+} );
+
+var editor; // use a global for the submit and return data rendering in the examples
+ 
+$(document).ready(function() {
+    editor = new $.fn.dataTable.Editor( {
+        ajax: "",
+        table: "#userList",
+        fields: [ {
+                label: "RUT:",
+                name: "Maules.rut"
+            }, {
+                label: "Nombre:",
+                name: "Maules.nombre"
+            }, {
+                label: "Apellido materno:",
+                name: "Maules.apellido_mat"
+            }, {
+                label: "Apellido paterno:",
+                name: "Maules.apellido_pat"
+            }, {
+                label: "Edad:",
+                name: "Maules.edad"
+            }, {
+                label: "Vacuna:",
+                name: "Maules.vacuna"
+            }, {
+                label: "Fecha:",
+                name: "Maules.fecha",
+                type: "datetime"
+            }
+        ]
+    } )});

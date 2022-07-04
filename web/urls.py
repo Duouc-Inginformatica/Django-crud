@@ -1,7 +1,7 @@
 from xml.etree.ElementInclude import include as include_xml #para incluir archivos xml
 from django.contrib import admin #para que se pueda usar el admin
 from django.urls import path,include #para incluir las urls de otra app
-from web.vista import index, eliminar, registrar #editar, buscar, eliminar_todo, editar_todo, buscar_todo
+from web.vista import index, eliminar, registrar, editar
 
 urlpatterns = [ #crear urls
     path('admin/', admin.site.urls), #para que se pueda acceder a la pagina de admin
@@ -10,4 +10,5 @@ urlpatterns = [ #crear urls
     path('api/', include('api.urls')), #para que se pueda acceder a la pagina de api
     path('eliminar/<rut>', eliminar, name='eliminar'), #para que se pueda acceder a la pagina de eliminar
    path('registrar', registrar, name='registrar'), #para que se pueda acceder a la pagina de registrar
+    path('editar/<rut>', editar, name='editar'), #para que se pueda acceder a la pagina de editar
 ]
