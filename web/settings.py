@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
      'api', #trae la api de la carpeta api
+     'api_lola', #trae la api de la carpeta api_lola
 ]
 
 MIDDLEWARE = [

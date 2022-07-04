@@ -24,7 +24,7 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
 
 	<!-- Nuestro css-->
-	<link rel='stylesheet' type='text/css' media='screen' href='{% static "css/formulario.css" %}'> <!-- static django plantilla -->
+	<link rel='stylesheet' type='text/css' media='screen' href='{% static "css/formulario2.css" %}'> <!-- static django plantilla -->
 	<!-- DATA TABLE -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/js/jquery.dataTables.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/datatables.net-bs5/1.12.1/dataTables.bootstrap5.min.js"></script>
@@ -37,10 +37,13 @@
 	<div class="mx-auto col-sm-8 main-section" id="myTab" role="tablist">
 		<ul class="nav nav-tabs justify-content-end">
 			<li class="nav-item">
-			<a class="nav-link active" id="list-tab" data-toggle="tab" href="#list" role="tab" aria-controls="list" aria-selected="false">Listar 1</a>
+			<a class="nav-link active" id="list-tab" data-toggle="tab" href="#list" role="tab" aria-controls="list" aria-selected="false">Listar</a>
 			</li>
 			<li class="nav-item">
-			<a class="nav-link" id="form-tab" data-toggle="tab" href="#form" role="tab" aria-controls="form" aria-selected="true">Añadir 1</a>				   	
+			<a class="nav-link" id="form-tab" data-toggle="tab" href="#form" role="tab" aria-controls="form" aria-selected="true">Añadir</a>				   	
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" id="" data-toggle="" href="{% url "home_homies3"  %}" role="" aria-controls="" aria-selected="true">Salir</a>				   	
 			</li>
 		</ul>
 		<div class="tab-content" id="myTabContent">
@@ -68,19 +71,19 @@
 								</thead>
 								<tbody>
 									<!-- variable de las vistas django -->
-								{% for  Lola in Lola %}
+								{% for  litio in litio %}
 								<tr>
-									<th scope="row">{{ Lola.rut}}</th>  <!-- Rut -->
-									<td>{{ Lola.nombres}}</td> <!-- nombre -->
-									<td>{{ Lola.apellidos}}</td> <!-- Apellido materno -->
-									<td>{{ Lola.correo}}</td> <!-- Correo -->
-									<td>{{ Lola.ticket}}</td> <!-- Apellido paterno -->
-									<td>{{ Lola.edad}}</td> <!-- Edad -->
-									<td>{{ Lola.movilidad}}</td> <!-- Vacuna -->
-									<td>{{ Lola.fecha}}</td>  <!-- email -->
-									<td>{{ Lola.precio}}</td>  <!-- email -->
+									<th scope="row">{{ litio.rut}}</th>  <!-- Rut -->
+									<td>{{ litio.nombres}}</td> <!-- nombre -->
+									<td>{{ litio.apellidos}}</td> <!-- Apellido materno -->
+									<td>{{ litio.correos}}</td> <!-- Correo -->
+									<td>{{ litio.ticket}}</td> <!-- Apellido paterno -->
+									<td>{{ litio.edad}}</td> <!-- Edad -->
+									<td>{{ litio.movilidad}}</td> <!-- Vacuna -->
+									<td>{{ litio.fecha}}</td>  <!-- email -->
+									<td>{{ litio.precio}}</td>  <!-- email -->
 									<td>
-										<a href="editar/{{ Lola.rut }}"><i class="fas fa-edit"></i></a> | <a href="eliminar/{{ Lola.rut }}"><i class="fas fa-user-times"></i></a>
+										<a href="editare/{{ litio.rut }}"><i class="fas fa-edit"></i></a> | <a href="eliminare/{{ litio.rut }}"><i class="fas fa-user-times"></i></a>
 									</td>
 								</tr>
 								<!-- termina el ciclo -->
@@ -95,10 +98,10 @@
 			<div class="tab-pane fade" id="form" role="tabpanel" aria-labelledby="form-tab">
 				<div class="card">
 					<div class="card-header">
-						<h4>Agregar paciente</h4>
+						<h4>Agregar Cliente</h4>
 					</div>
 					<div class="card-body">                                                                   
-						<form class="form" role="form" autocomplete="false" method="post" action="reglola"> {% csrf_token %} <!-- encryptar csrf -->
+						<form class="form" role="form" autocomplete="false" method="post" action="registrare"> {% csrf_token %} <!-- encryptar csrf -->
 							<div class="form-group row">
 								<label class="col-lg-3 col-form-label form-control-label">Rut</label>
 								<div class="col-lg-9">
@@ -108,7 +111,7 @@
 							<div class="form-group row">
 								<label class="col-lg-3 col-form-label form-control-label">Nombres</label>
 								<div class="col-lg-9">
-									<input name="nombreS" class="form-control" type="text" >
+									<input name="nombres" class="form-control" type="text" >
 								</div>
 							</div>
 							<div class="form-group row">
@@ -120,13 +123,13 @@
 							<div class="form-group row">
 								<label class="col-lg-3 col-form-label form-control-label">Correo</label>
 								<div class="col-lg-9">
-									<input name="correo" class="form-control" type="email">
+									<input name="correos" class="form-control" type="email">
 								</div>
 							</div>
 							<div class="form-group row">
 								<label class="col-lg-3 col-form-label form-control-label">Ticket</label>
 								<div class="col-lg-9">
-									<input name="ticket" class="form-control" type="number">
+									<input name="ticket" class="form-control" type="text">
 								</div>
 							</div>
 							<div class="form-group row">
