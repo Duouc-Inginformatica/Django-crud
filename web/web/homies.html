@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+<title>ET anto</title>
+<link rel="stylesheet" type="text/css" href="{% static "css/homies.css" %}">
+</head>
+<body>
+	<div class="card">
+		<div class="imgBx">
+			<img src="{% static "img/img.jpg"  %}">
+		</div>
+		<div class="content">
+			<div class="details">
+				<h2>Desarrollo Web<br><span>ET</span></h2>
+				<div class="data">
+					<h3>Django<br><span>Xampp</span></h3>
+					<h3>Datatable<br><span>Jquery</span></h3>
+					<h3>Bootstrap<br><span>Css</span></h3>
+				</div>
+				<div class="actionBtn">
+					<a href="{% url 'index' %}" class="button">Macul</a>
+					<button>Lollapaluza</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

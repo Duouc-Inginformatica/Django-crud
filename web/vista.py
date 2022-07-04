@@ -11,6 +11,9 @@ def index(request): #crear funcion index
     Maules = Maule.objects.all() #crear variable maules y llamar a la tabla maule
     return render(request, 'index.html', {'Maules': Maules}) #enviar datos a la pagina index.html en variable maules
 
+def homies(request): #crear funcion index
+    return render(request, 'homies.html')
+
 # eliminar datos de la tabla
 def eliminar(request, rut): #crear funcion eliminar
     remover = Maule.objects.get(rut=rut) #crear variable remover y llamar a la tabla maule
