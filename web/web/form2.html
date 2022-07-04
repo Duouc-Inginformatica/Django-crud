@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-	<title>Macul v4.0</title>
+	<title>Santiago v3.0</title>
 	
 	<!--JQUERY-->
 	<script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
@@ -47,7 +47,7 @@
 			<div class="tab-pane fade show active" id="list" role="tabpanel" aria-labelledby="list-tab">
 				<div class="card">
 					<div class="card-header">
-						<h4>Examen tranversal WEB</h4>
+						<h4>Registro Lollapalooza 2022</h4>
 					</div>
 					<div class="card-body">
 						<div class="table-responsive">
@@ -55,28 +55,32 @@
 								<thead class="thead-light">
 								<tr>
 									<th scope="col">Rut</th>
-									<th scope="col">Nombre</th>
-									<th scope="col">Apellido materno</th>
-									<th scope="col">Apellido paterno</th>
+									<th scope="col">Nombres</th>
+									<th scope="col">Apellidos</th>
+									<th scope="col">Correo</th>
+									<th scope="col">Ticket</th>
 									<th scope="col">Edad</th>
-									<th scope="col">Vacuna</th>
+									<th scope="col">P.Movilidad</th>
 									<th scope="col">Fecha</th>
+									<th scope="col">Precio(CLP)</th>
 									<th></th>
 								</tr>
 								</thead>
 								<tbody>
 									<!-- variable de las vistas django -->
-								{% for Maules in Maules %}
+								{% for  Lola in Lola %}
 								<tr>
-									<th scope="row">{{ Maules.rut}}</th>  <!-- Rut -->
-									<td>{{ Maules.nombre}}</td> <!-- nombre -->
-									<td>{{ Maules.apellido_mat}}</td> <!-- Apellido materno -->
-									<td>{{ Maules.apellido_pat}}</td> <!-- Apellido paterno -->
-									<td>{{ Maules.edad}}</td> <!-- Edad -->
-									<td>{{ Maules.vacuna}}</td> <!-- Vacuna -->
-									<td>{{ Maules.fecha}}</td>  <!-- email -->
+									<th scope="row">{{ Lola.rut}}</th>  <!-- Rut -->
+									<td>{{ Lola.nombres}}</td> <!-- nombre -->
+									<td>{{ Lola.apellidos}}</td> <!-- Apellido materno -->
+									<td>{{ Lola.correo}}</td> <!-- Correo -->
+									<td>{{ Lola.ticket}}</td> <!-- Apellido paterno -->
+									<td>{{ Lola.edad}}</td> <!-- Edad -->
+									<td>{{ Lola.movilidad}}</td> <!-- Vacuna -->
+									<td>{{ Lola.fecha}}</td>  <!-- email -->
+									<td>{{ Lola.precio}}</td>  <!-- email -->
 									<td>
-										<a href="editar/{{ Maules.rut }}"><i class="fas fa-edit"></i></a> | <a href="eliminar/{{ Maules.rut }}"><i class="fas fa-user-times"></i></a>
+										<a href="editar/{{ Lola.rut }}"><i class="fas fa-edit"></i></a> | <a href="eliminar/{{ Lola.rut }}"><i class="fas fa-user-times"></i></a>
 									</td>
 								</tr>
 								<!-- termina el ciclo -->
@@ -94,7 +98,7 @@
 						<h4>Agregar paciente</h4>
 					</div>
 					<div class="card-body">                                                                   
-						<form class="form" role="form" autocomplete="false" method="post" action="registrar"> {% csrf_token %} <!-- encryptar csrf -->
+						<form class="form" role="form" autocomplete="false" method="post" action="reglola"> {% csrf_token %} <!-- encryptar csrf -->
 							<div class="form-group row">
 								<label class="col-lg-3 col-form-label form-control-label">Rut</label>
 								<div class="col-lg-9">
@@ -102,21 +106,27 @@
 								</div>
 							</div>
 							<div class="form-group row">
-								<label class="col-lg-3 col-form-label form-control-label">Nombre</label>
+								<label class="col-lg-3 col-form-label form-control-label">Nombres</label>
 								<div class="col-lg-9">
-									<input name="nombre" class="form-control" type="text" >
+									<input name="nombreS" class="form-control" type="text" >
 								</div>
 							</div>
 							<div class="form-group row">
-								<label class="col-lg-3 col-form-label form-control-label">Apellido materno</label>
+								<label class="col-lg-3 col-form-label form-control-label">Apellidos</label>
 								<div class="col-lg-9">
-									<input name="apellido_mat" class="form-control" type="text">
+									<input name="apellidos" class="form-control" type="text">
 								</div>
 							</div>
 							<div class="form-group row">
-								<label class="col-lg-3 col-form-label form-control-label">Apellido paterno</label>
+								<label class="col-lg-3 col-form-label form-control-label">Correo</label>
 								<div class="col-lg-9">
-									<input name="apellido_pat" class="form-control" type="text">
+									<input name="correo" class="form-control" type="email">
+								</div>
+							</div>
+							<div class="form-group row">
+								<label class="col-lg-3 col-form-label form-control-label">Ticket</label>
+								<div class="col-lg-9">
+									<input name="ticket" class="form-control" type="number">
 								</div>
 							</div>
 							<div class="form-group row">
@@ -126,15 +136,21 @@
 								</div>
 							</div>
 							<div class="form-group row">
-								<label class="col-lg-3 col-form-label form-control-label">Vacuna</label>
+								<label class="col-lg-3 col-form-label form-control-label">P.Movilidad</label>
 								<div class="col-lg-9">
-									<input name="vacuna"class="form-control" type="text">
+									<input name="movilidad" class="form-control" type="text">
 								</div>
 							</div>
 							<div class="form-group row">
 								<label class="col-lg-3 col-form-label form-control-label">Fecha</label>
 								<div class="col-lg-9">
-									<input name="fecha"class="form-control" type="date">
+									<input name="fecha" class="form-control" type="date">
+								</div>
+							</div>
+							<div class="form-group row">
+								<label class="col-lg-3 col-form-label form-control-label">Precio</label>
+								<div class="col-lg-9">
+									<input name="precio" class="form-control" type="number">
 								</div>
 							</div>
 							<div class="form-group row">
