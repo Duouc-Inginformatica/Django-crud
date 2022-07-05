@@ -5,7 +5,7 @@ body{
 input:focus{
      outline: none;
  }
- 
+
  form{
      width: 35%;
      margin-left:auto;
@@ -59,4 +59,4 @@ input:focus{
      font-size:  10px;
      letter-spacing:  1px;
      font-style: italic;
- }
+ } 
