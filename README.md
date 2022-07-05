@@ -23,13 +23,14 @@
 <img src="https://raw.githubusercontent.com/Duouc-Inginformatica/card-img/main/anto/8.png" > 
 </p>
 
-Esto es un proyecto con una página web de venta de videojuegos con las siguientes tecnologías:
+Examen tranversal 2022:
  * Python
  * HTML
  * Javascript
  * Django
  * Bootstrap
  * Jquery
+ * Google fonts
  * other
 
 ### REQUIERE:
