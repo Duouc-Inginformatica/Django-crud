@@ -29,7 +29,7 @@ ALLOWED_HOSTS = []
 
 
 STATICFILES_DIRS = [
-    BASE_DIR / "static", 'C:/Users/sebas/Desktop/home/Django-crud/web/web/static',
+    BASE_DIR / "static", 'C:/Users/pablo/OneDrive/Escritorio/Django-crud-master-2/web/web/static',
 ]
 
 
@@ -60,7 +60,7 @@ ROOT_URLCONF = 'web.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ["C:/Users/sebas/Desktop/home/Django-crud/web/web/"],
+        'DIRS': ["C:/Users/pablo/OneDrive/Escritorio/Django-crud-master-2/web/web"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -84,7 +84,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql', #motor de la base de datos # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
         'NAME': 'pruebadjango', #hombre de la base de datos
         'USER': 'root', #usuario de la base de datos
-        'PASSWORD': '', #contraseña de la base de datos
+        'PASSWORD': '11', #contraseña de la base de datos
         'HOST': 'localhost', #host de la base de datos
         'PORT': '3306', #puerto de la base de datos
         'OPTIONS': {
